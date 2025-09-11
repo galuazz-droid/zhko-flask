@@ -1,14 +1,11 @@
-import asyncio
-import json
 import os
-from datetime import datetime, timedelta
+import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
-from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -219,4 +216,9 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
+    # Используем порт 8080 — стандартный для Render
+    port = int(os.environ.get("PORT", 8080))
+    print(f"🚀 Запускаем бота на порту {port}")
+    
+    # Запускаем бота
     asyncio.run(main())
