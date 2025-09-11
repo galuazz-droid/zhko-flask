@@ -216,9 +216,5 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    # Используем порт 8080 — стандартный для Render
-    port = int(os.environ.get("PORT", 8080))
-    print(f"🚀 Запускаем бота на порту {port}")
-    
-    # Запускаем бота
+    print("🚀 Запускаем Telegram-бота...")
     asyncio.run(main())
